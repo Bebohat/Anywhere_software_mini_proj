@@ -1,4 +1,8 @@
 /* src/style.css */
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -60,6 +64,7 @@ button.danger:hover {
   background-color: #c0392b;
 }
 
+
 input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
@@ -74,6 +79,18 @@ input:focus, textarea:focus {
   border-color: #3498db;
   box-shadow: 0 0 3px rgba(52, 152, 219, 0.4);
 }
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 16px;
+  overflow-wrap: break-word;
+}
+
 /* Sidebar.css */
 .sidebar a {
   color: #ccc;
@@ -88,3 +105,51 @@ input:focus, textarea:focus {
   background-color: #ffffff;
   color: #1a1a1a;
 }
+/* In style.css */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensure vertical fill */
+}
+
+@media (min-width: 768px) {
+  .layout {
+    flex-direction: row;
+  }
+}
+
+.sidebar {
+  background-color: #1a1a1a;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 200px;
+    height: auto;
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem 2rem;
+  overflow: auto; /* add scroll if content is tall */
+}
+
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+}
+

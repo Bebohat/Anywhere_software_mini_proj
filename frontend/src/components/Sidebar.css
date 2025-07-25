@@ -1,10 +1,16 @@
+.sidebar {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
 .sidebar a {
   color: #ccc;
   text-decoration: none;
   padding: 10px;
   display: block;
   border-radius: 4px;
-  transition: 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .sidebar a:hover {
