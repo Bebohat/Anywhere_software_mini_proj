@@ -1,0 +1,13 @@
+.sidebar a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
