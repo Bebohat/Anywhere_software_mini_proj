@@ -856,7 +856,6 @@ body {
     padding: 1.5rem;
   }
 }
-
 /* Distinct Quiz and Announcement Card Colors */
 .coligo-due-card {
   background: #eaf4ff;
@@ -1032,3 +1031,237 @@ body {
     flex-direction: column;
   }
 }
+
+/* Quiz and Announcement Reference Design Styles */
+.coligo-yellow-item {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.coligo-blue-item {
+  background: #dbeafe;
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.coligo-purple-item {
+  background: #e9d5ff;
+  border: 1px solid #8b5cf6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.coligo-yellow-item:hover,
+.coligo-blue-item:hover,
+.coligo-purple-item:hover {
+  transform: translateY(-2px);
+}
+
+.coligo-item-icon {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #6c3ef4;
+}
+
+.coligo-item-icon:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.coligo-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.coligo-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.coligo-item-course {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.coligo-item-arrow {
+  color: #64748b;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.coligo-item-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.coligo-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.coligo-delete-btn {
+  background: transparent;
+  color: #dc2626;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.coligo-delete-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+/* Quiz Questions Styles */
+.coligo-quiz-questions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.coligo-question-item {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.coligo-question-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.75rem 0;
+}
+
+.coligo-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.coligo-answer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.2s;
+}
+
+.coligo-answer.correct {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.coligo-answer-letter {
+  font-weight: 600;
+  color: #6c3ef4;
+  min-width: 1.5rem;
+}
+
+.coligo-answer-text {
+  flex: 1;
+  font-size: 0.85rem;
+  color: #1e293b;
+}
+
+.coligo-correct-badge {
+  color: #059669;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Announcement specific styles */
+.coligo-announcement-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #6c3ef4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.coligo-announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.coligo-announcement-time {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.coligo-announcement-text {
+  font-size: 0.9rem;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+.coligo-engagement {
+  display: flex;
+  gap: 1rem;
+}
+
+.coligo-engagement-item {
+  font-size: 0.8rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Layout for quiz and announcement items */
+.quiz-card.coligo-card-item,
+.announcement-card.coligo-card-item {
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.quiz-card.coligo-card-item:last-child,
+.announcement-card.coligo-card-item:last-child {
+  margin-bottom: 0;
+}
+
