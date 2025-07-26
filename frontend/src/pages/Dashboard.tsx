@@ -7,6 +7,7 @@ import AnnouncementList from '../components/AnnouncementList';
 import QuizForm from '../components/QuizForm';
 import QuizList from '../components/QuizList';
 import Sidebar from '../components/Sidebar';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 
 const Dashboard: React.FC = () => {
@@ -36,14 +37,14 @@ const Dashboard: React.FC = () => {
       <main className="main-content coligo-dashboard-main">
         <header className="coligo-dashboard-header">
           <div className="coligo-header-left">
-            <h2 className="coligo-welcome">Welcome {user.name},</h2>
-            <div className="coligo-header-sub">Here's what's happening with your courses today</div>
+            <h2 className="coligo-welcome">{t('welcomeMessage')} {user.name},</h2>
+            <div className="coligo-header-sub">{t('dashboardSubtitle')}</div>
           </div>
           <div className="coligo-header-right">
             <div className="coligo-search-container">
               <input 
                 type="text" 
-                placeholder="Search courses, assignments..." 
+                placeholder={t('searchPlaceholder')}
                 className="coligo-search-input"
               />
               <span className="coligo-search-icon">🔍</span>
@@ -52,71 +53,78 @@ const Dashboard: React.FC = () => {
               <span className="coligo-notification-icon">📧</span>
               <span className="coligo-notification-icon">🔔</span>
             </div>
+            <LanguageSwitcher />
             <div className="coligo-user-section">
               <span className="coligo-header-avatar">JS</span>
-              <button onClick={handleLogout} className="coligo-logout-btn">{t('Logout')}</button>
+              <button onClick={handleLogout} className="coligo-logout-btn">{t('logout')}</button>
             </div>
           </div>
         </header>
         
         <div className="coligo-dashboard-content">
           <div className="coligo-dashboard-grid">
-            <section className="coligo-card coligo-exams-card">
-              <div className="coligo-card-header">
-                <h3 className="coligo-card-title">EXAMS TIME</h3>
-              </div>
+            <div className="coligo-card coligo-exams-card">
               <div className="coligo-card-content">
-                <p className="coligo-exams-text">
-                  Here we are, Are you ready to fight? Don't worry, we prepared some tips to be ready for your exams.
-                </p>
-                <p className="coligo-exams-quote">
+                <div className="coligo-exams-text">
                   "Education is not the learning of facts, but the training of the mind to think." - Albert Einstein
-                </p>
+                </div>
+                <div className="coligo-exams-quote">
+                  Stay focused and keep learning!
+                </div>
                 <button className="coligo-primary-button">View exams tips</button>
               </div>
-            </section>
+            </div>
+          </div>
 
-            <section className="coligo-card coligo-announcements-card">
+          <div className="coligo-dashboard-grid">
+            <div className="coligo-card coligo-announcements-card">
               <div className="coligo-card-header">
-                <h3 className="coligo-card-title">Announcements</h3>
-                <a href="#" className="coligo-view-all">All</a>
+                <h3 className="coligo-card-title">{t('announcements')}</h3>
+                <a href="#" className="coligo-view-all">{t('viewAll')}</a>
               </div>
               <div className="coligo-card-content">
                 <AnnouncementList />
               </div>
-            </section>
-
-            <section className="coligo-card coligo-due-card">
+            </div>
+            <div className="coligo-card coligo-due-card">
               <div className="coligo-card-header">
-                <h3 className="coligo-card-title">What's due</h3>
-                <a href="#" className="coligo-view-all">All</a>
+                <h3 className="coligo-card-title">{t('whatsDue')}</h3>
+                <a href="#" className="coligo-view-all">{t('viewAll')}</a>
               </div>
               <div className="coligo-card-content">
                 <QuizList />
               </div>
-            </section>
+            </div>
           </div>
 
-          <section className="coligo-actions-section">
-            <button className="coligo-action-btn" onClick={() => setShowAnnouncementForm(!showAnnouncementForm)}>
-              {showAnnouncementForm ? t('Hide Add Announcement') : t('Add Announcement')}
+          <div className="coligo-actions-section">
+            <button 
+              onClick={() => setShowAnnouncementForm(!showAnnouncementForm)} 
+              className="coligo-action-btn"
+            >
+              {t('addAnnouncement')}
             </button>
-            {showAnnouncementForm && (
-              <div className="coligo-form-card">
-                <h2>{t('Post New Announcement')}</h2>
-                <AnnouncementForm />
-              </div>
-            )}
-            <button className="coligo-action-btn" onClick={() => setShowQuizForm(!showQuizForm)}>
-              {showQuizForm ? t('Hide Add Quiz') : t('Add Quiz')}
+            <button 
+              onClick={() => setShowQuizForm(!showQuizForm)} 
+              className="coligo-action-btn"
+            >
+              {t('addQuiz')}
             </button>
-            {showQuizForm && (
-              <div className="coligo-form-card">
-                <h2>{t('Create New Quiz')}</h2>
-                <QuizForm />
-              </div>
-            )}
-          </section>
+          </div>
+
+          {showAnnouncementForm && (
+            <div className="coligo-form-card">
+              <h2>{t('newAnnouncement')}</h2>
+              <AnnouncementForm />
+            </div>
+          )}
+
+          {showQuizForm && (
+            <div className="coligo-form-card">
+              <h2>{t('createQuiz')}</h2>
+              <QuizForm />
+            </div>
+          )}
         </div>
       </main>
     </div>

@@ -1,12 +1,27 @@
 // src/pages/Home.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { login } from '../features/auth/authSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
+
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleLogin = () => {
+    dispatch(login());
+    navigate('/dashboard');
+  };
 
   return (
     <div className="home-container coligo-home">
@@ -17,20 +32,14 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="home-box coligo-welcome-card">
-        <h1 className="coligo-welcome-title">Welcome to the Student Dashboard</h1>
-        <p className="coligo-welcome-subtitle">Your gateway to learning excellence</p>
-        {!isAuthenticated ? (
-          <button
-            onClick={() => dispatch(login())}
-            className="home-button coligo-primary-btn"
-          >
-            Log In
-          </button>
-        ) : (
-          <Link to="/dashboard" className="home-button coligo-primary-btn">
-            Go to Dashboard
-          </Link>
-        )}
+        <h1 className="coligo-welcome-title">{t('welcome')}</h1>
+        <p className="coligo-welcome-subtitle">{t('welcomeSubtitle')}</p>
+        <button
+          onClick={handleLogin}
+          className="home-button coligo-primary-btn"
+        >
+          {t('login')}
+        </button>
       </div>
     </div>
   );

@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchQuizzes, deleteQuiz } from '../features/quizzes/quizSlice';
 import type { Quiz, Question } from '../features/quizzes/quizSlice';
+import { useTranslation } from 'react-i18next';
 
 const QuizList: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const { quizzes, loading, error } = useAppSelector((state) => state.quizzes);
   const [expandedQuizzes, setExpandedQuizzes] = useState<Set<string>>(new Set());
 
@@ -23,8 +25,8 @@ const QuizList: React.FC = () => {
     setExpandedQuizzes(newExpanded);
   };
 
-  if (loading) return <p>Loading quizzes...</p>;
-  if (error) return <p className="text-red-600">Error: {error}</p>;
+  if (loading) return <p>{t('loadingText')}</p>;
+  if (error) return <p className="text-red-600">{t('errorText')}: {error}</p>;
 
   return (
     <div className="quiz-list coligo-quiz-list">
@@ -44,7 +46,7 @@ const QuizList: React.FC = () => {
             </div>
             <div className="coligo-item-content" onClick={() => toggleQuiz(quiz._id)}>
               <h4 className="coligo-item-title">{quiz.course_name}</h4>
-              <p className="coligo-item-course">Course • {quiz.questions.length} questions</p>
+              <p className="coligo-item-course">{t('course')} • {quiz.questions.length} {t('questions')}</p>
             </div>
             <div className="coligo-item-actions">
               <span className={`coligo-item-arrow ${isExpanded ? 'expanded' : ''}`}>→</span>
@@ -52,7 +54,7 @@ const QuizList: React.FC = () => {
                 onClick={() => dispatch(deleteQuiz(quiz._id))}
                 className="coligo-delete-btn"
               >
-                Delete
+                {t('delete')}
               </button>
             </div>
             

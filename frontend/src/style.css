@@ -1265,3 +1265,57 @@ body {
   margin-bottom: 0;
 }
 
+/* Language Switcher Styles */
+.language-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.language-select {
+  background: var(--coligo-gray);
+  border: 1px solid var(--coligo-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--coligo-text);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 100px;
+}
+
+.language-select:hover {
+  border-color: var(--coligo-primary);
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--coligo-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] .coligo-sidebar {
+  border-right: none;
+  border-left: 1px solid #e2e8f0;
+}
+
+[dir="rtl"] .coligo-item-icon {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .coligo-announcement-avatar {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+[dir="rtl"] .coligo-item-arrow {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .coligo-answer-letter {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+

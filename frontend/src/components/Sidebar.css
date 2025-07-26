@@ -64,11 +64,11 @@
   color: #ffffff;
 }
 .coligo-sidebar a:hover:not(.active) {
-  background: #f1f5f9;
-  color: #475569;
+  background: #ffffff;
+  color: #ffffff;
 }
 .coligo-sidebar a:hover:not(.active) .sidebar-icon {
-  color: #64748b;
+  color: #ffffff;
 }
 .sidebar-section-bottom {
   margin-top: auto;
