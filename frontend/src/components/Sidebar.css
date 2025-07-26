@@ -1,10 +1,10 @@
 .coligo-sidebar {
-  background: linear-gradient(135deg, #f3eafe 0%, #e5e0fa 100%);
-  color: #4b3e7a;
+  background: #f8fafc;
+  color: #475569;
   min-height: 100vh;
-  width: 240px;
+  width: 260px;
   padding: 2rem 1.5rem 1rem 1.5rem;
-  box-shadow: 2px 0 12px rgba(80, 97, 107, 0.07);
+  border-right: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,47 +12,63 @@
 .sidebar-header {
   display: flex;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 .sidebar-logo {
-  font-size: 2rem;
-  margin-right: 0.5rem;
-  color: var(--coligo-purple);
+  font-size: 1.8rem;
+  margin-right: 0.8rem;
+  color: #3b82f6;
 }
 .sidebar-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--coligo-purple);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e293b;
 }
 .sidebar-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .sidebar-section-title {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #b0b0c3;
-  margin-bottom: 0.7rem;
-  letter-spacing: 1px;
+  color: #94a3b8;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 .coligo-sidebar a {
   display: flex;
   align-items: center;
-  color: #4b3e7a;
+  color: #64748b;
   text-decoration: none;
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 0.3rem;
-  font-size: 1rem;
-  transition: background 0.15s, color 0.15s;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 .coligo-sidebar a .sidebar-icon {
-  margin-right: 0.7rem;
-  font-size: 1.2rem;
-  color: #b39ddb;
+  margin-right: 0.8rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  width: 20px;
+  text-align: center;
 }
-.coligo-sidebar a.active, .coligo-sidebar a:hover {
-  background: #e5d8fa;
-  color: var(--coligo-purple);
+.coligo-sidebar a.active {
+  background: #3b82f6;
+  color: #ffffff;
+}
+.coligo-sidebar a.active .sidebar-icon {
+  color: #ffffff;
+}
+.coligo-sidebar a:hover:not(.active) {
+  background: #f1f5f9;
+  color: #475569;
+}
+.coligo-sidebar a:hover:not(.active) .sidebar-icon {
+  color: #64748b;
 }
 .sidebar-section-bottom {
   margin-top: auto;
