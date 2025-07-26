@@ -1,26 +1,21 @@
 // src/pages/Home.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { login } from '../features/auth/authSlice';
-import { Link, useNavigate } from 'react-router-dom';
+import { login, logout } from '../features/auth/authSlice';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const { t } = useTranslation();
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
-  // Redirect authenticated users to dashboard
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/dashboard');
-    }
-  }, [isAuthenticated, navigate]);
-
   const handleLogin = () => {
     dispatch(login());
-    navigate('/dashboard');
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -34,12 +29,27 @@ const Home: React.FC = () => {
       <div className="home-box coligo-welcome-card">
         <h1 className="coligo-welcome-title">{t('welcome')}</h1>
         <p className="coligo-welcome-subtitle">{t('welcomeSubtitle')}</p>
-        <button
-          onClick={handleLogin}
-          className="home-button coligo-primary-btn"
-        >
-          {t('login')}
-        </button>
+        {!isAuthenticated ? (
+          <button
+            onClick={handleLogin}
+            className="home-button coligo-primary-btn"
+          >
+            {t('login')}
+          </button>
+        ) : (
+          <>
+            <Link to="/dashboard" className="home-button coligo-primary-btn" style={{ marginBottom: 12 }}>
+              {t('dashboard')}
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="home-button coligo-primary-btn"
+              style={{ background: '#e74c3c', marginTop: 8 }}
+            >
+              {t('logout')}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
