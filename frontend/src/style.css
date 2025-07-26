@@ -278,3 +278,356 @@ body {
 .home-button:hover {
   background-color: #2980b9;
 }
+
+/* Coligo LMS Dashboard Styles */
+:root {
+  --coligo-purple: #6c3ef4;
+  --coligo-yellow: #fff9e5;
+  --coligo-blue: #eaf4ff;
+  --coligo-pink: #f7eaff;
+  --coligo-gray: #f5f6fa;
+  --coligo-card-radius: 16px;
+  --coligo-shadow: 0 2px 12px rgba(80, 97, 107, 0.07);
+}
+.coligo-dashboard-main {
+  background: var(--coligo-gray);
+  min-height: 100vh;
+  padding: 2.5rem 2rem;
+}
+.coligo-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  background: #fff;
+  border-radius: var(--coligo-card-radius);
+  box-shadow: var(--coligo-shadow);
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+}
+.coligo-header-left {
+  display: flex;
+  flex-direction: column;
+}
+.coligo-welcome {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.3rem;
+}
+.coligo-header-sub {
+  color: #888;
+  font-size: 1.1rem;
+}
+.coligo-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.coligo-header-icon {
+  font-size: 1.5rem;
+  color: var(--coligo-purple);
+  background: #f3eafe;
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin-right: 0.2rem;
+}
+.coligo-header-avatar {
+  background: var(--coligo-purple);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+.coligo-logout {
+  margin-left: 0.5rem;
+  background: #fff;
+  color: var(--coligo-purple);
+  border: 1.5px solid var(--coligo-purple);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  transition: background 0.15s, color 0.15s;
+}
+.coligo-logout:hover {
+  background: var(--coligo-purple);
+  color: #fff;
+}
+.coligo-dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr;
+  gap: 2rem;
+}
+.coligo-card {
+  background: #fff;
+  border-radius: var(--coligo-card-radius);
+  box-shadow: var(--coligo-shadow);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+.coligo-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--coligo-purple);
+  margin-bottom: 1.2rem;
+}
+.coligo-due {
+  background: var(--coligo-yellow);
+}
+.coligo-upcoming {
+  background: var(--coligo-blue);
+}
+.coligo-actions {
+  background: var(--coligo-pink);
+}
+.coligo-action-btn {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: var(--coligo-purple);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  transition: background 0.15s;
+}
+.coligo-action-btn:hover {
+  background: #4b2bbd;
+}
+@media (max-width: 1100px) {
+  .coligo-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Firmer card style */
+.coligo-card-item {
+  background: #fff;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0f0;
+  box-shadow: 0 4px 16px rgba(80, 97, 107, 0.13);
+  padding: 1.2rem 1.5rem 1rem 1.5rem;
+  border-left: 6px solid var(--coligo-purple);
+  margin-bottom: 1.2rem;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.coligo-card-item:hover {
+  box-shadow: 0 8px 24px rgba(80, 97, 107, 0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+/* Announcement inner box */
+.coligo-announcement-inner {
+  background: #eaf4ff;
+  border: 1.5px solid #b3d4fc;
+  border-radius: 7px;
+  padding: 1rem 1.2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  box-shadow: 0 1px 4px rgba(80, 97, 107, 0.07);
+  font-size: 1.05rem;
+  color: #234;
+}
+.announcement-author, .quiz-question {
+  font-weight: 700;
+  color: var(--coligo-purple);
+  font-size: 1.08rem;
+  margin-bottom: 0.2rem;
+}
+.announcement-date {
+  font-size: 0.92rem;
+  color: #b0b0c3;
+  margin-top: 0.4rem;
+}
+.announcement-content, .quiz-details {
+  color: #234;
+  font-size: 1.04rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.6;
+}
+.quiz-card .bg-gray-100 {
+  background: #f7f6fd;
+}
+.quiz-card .font-medium {
+  color: var(--coligo-purple);
+}
+.quiz-card ul {
+  margin-top: 0.3rem;
+}
+.quiz-card li {
+  margin-bottom: 0.1rem;
+}
+.quiz-card .text-green-600 {
+  color: #27ae60 !important;
+}
+.quiz-card .font-semibold {
+  font-weight: 600;
+}
+.quiz-card button {
+  margin-left: 0.5rem;
+}
+.announcement-header {
+  margin-bottom: 0.2rem;
+}
+.announcement-card, .quiz-card {
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+}
+
+/* Enhanced Home Page Styles */
+.coligo-home {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+.coligo-home-header {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+.coligo-home-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.coligo-logo-icon {
+  font-size: 2.5rem;
+  color: #fff;
+}
+.coligo-logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.coligo-welcome-card {
+  background: #fff;
+  padding: 3.5rem 4rem;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.coligo-welcome-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.coligo-welcome-subtitle {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+.coligo-primary-btn {
+  background: linear-gradient(135deg, var(--coligo-purple) 0%, #5a67d8 100%);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(108, 62, 244, 0.3);
+}
+.coligo-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(108, 62, 244, 0.4);
+  background: linear-gradient(135deg, #5a67d8 0%, var(--coligo-purple) 100%);
+}
+
+/* Enhanced Page Styles for Announcements and Quizzes */
+.coligo-page-main {
+  background: var(--coligo-gray);
+  min-height: 100vh;
+  padding: 2rem;
+}
+.coligo-page-header {
+  background: #fff;
+  border-radius: var(--coligo-card-radius);
+  box-shadow: var(--coligo-shadow);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+}
+.coligo-page-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.coligo-page-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--coligo-purple);
+  margin: 0;
+}
+.coligo-page-subtitle {
+  font-size: 1.1rem;
+  color: #718096;
+  margin: 0;
+  font-weight: 400;
+}
+.coligo-page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.coligo-content-card {
+  background: #fff;
+  border-radius: var(--coligo-card-radius);
+  box-shadow: var(--coligo-shadow);
+  padding: 2rem;
+  min-height: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .coligo-home {
+    padding: 1rem;
+  }
+  .coligo-home-header {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 2rem;
+  }
+  .coligo-welcome-card {
+    padding: 2.5rem 2rem;
+  }
+  .coligo-welcome-title {
+    font-size: 2rem;
+  }
+  .coligo-page-main {
+    padding: 1rem;
+  }
+  .coligo-page-header {
+    padding: 1.5rem;
+  }
+  .coligo-page-title {
+    font-size: 1.8rem;
+  }
+  .coligo-content-card {
+    padding: 1.5rem;
+  }
+}

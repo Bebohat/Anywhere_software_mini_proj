@@ -1,11 +1,26 @@
 import React from 'react';
 import AnnouncementList from '../components/AnnouncementList';
+import Sidebar from '../components/Sidebar';
 
 const AnnouncementsPage: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">All Announcements</h1>
-      <AnnouncementList />
+    <div className="layout">
+      <aside className="sidebar">
+        <Sidebar />
+      </aside>
+      <main className="main-content coligo-page-main">
+        <header className="coligo-page-header">
+          <div className="coligo-page-title-section">
+            <h1 className="coligo-page-title">Announcements</h1>
+            <p className="coligo-page-subtitle">Stay updated with the latest news and updates</p>
+          </div>
+        </header>
+        <div className="coligo-page-content">
+          <div className="coligo-content-card">
+            <AnnouncementList />
+          </div>
+        </div>
+      </main>
     </div>
   );
 };

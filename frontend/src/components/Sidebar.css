@@ -1,19 +1,59 @@
-.sidebar {
-  background-color: #1a1a1a;
-  padding: 1rem;
+.coligo-sidebar {
+  background: linear-gradient(135deg, #f3eafe 0%, #e5e0fa 100%);
+  color: #4b3e7a;
   min-height: 100vh;
+  width: 240px;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+  box-shadow: 2px 0 12px rgba(80, 97, 107, 0.07);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.sidebar a {
-  color: #ccc;
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+.sidebar-logo {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+  color: var(--coligo-purple);
+}
+.sidebar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--coligo-purple);
+}
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+.sidebar-section-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b0b0c3;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+}
+.coligo-sidebar a {
+  display: flex;
+  align-items: center;
+  color: #4b3e7a;
   text-decoration: none;
-  padding: 10px;
-  display: block;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  transition: background 0.15s, color 0.15s;
 }
-
-.sidebar a:hover {
-  background-color: #ffffff;
-  color: #1a1a1a;
+.coligo-sidebar a .sidebar-icon {
+  margin-right: 0.7rem;
+  font-size: 1.2rem;
+  color: #b39ddb;
+}
+.coligo-sidebar a.active, .coligo-sidebar a:hover {
+  background: #e5d8fa;
+  color: var(--coligo-purple);
+}
+.sidebar-section-bottom {
+  margin-top: auto;
 }

@@ -16,9 +16,9 @@ const QuizList: React.FC = () => {
   if (error) return <p className="text-red-600">Error: {error}</p>;
 
   return (
-    <div className="quiz-list">
+    <div className="quiz-list coligo-quiz-list">
       {quizzes.map((quiz: Quiz) => (
-        <div key={quiz._id} className="quiz-card">
+        <div key={quiz._id} className="quiz-card coligo-card-item">
           <div className="flex justify-between items-center mb-2">
             <h3 className="quiz-question">{quiz.course_name}</h3>
             <button

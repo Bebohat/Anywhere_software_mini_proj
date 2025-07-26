@@ -9,18 +9,25 @@ const Home: React.FC = () => {
   const isAuthenticated = useAppSelector((state) => state.auth.isAuthenticated);
 
   return (
-    <div className="home-container">
-      <div className="home-box">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">Welcome to the Student Dashboard</h1>
+    <div className="home-container coligo-home">
+      <div className="coligo-home-header">
+        <div className="coligo-home-logo">
+          <span className="coligo-logo-icon">🎓</span>
+          <span className="coligo-logo-text">Coligo LMS</span>
+        </div>
+      </div>
+      <div className="home-box coligo-welcome-card">
+        <h1 className="coligo-welcome-title">Welcome to the Student Dashboard</h1>
+        <p className="coligo-welcome-subtitle">Your gateway to learning excellence</p>
         {!isAuthenticated ? (
           <button
             onClick={() => dispatch(login())}
-            className="home-button"
+            className="home-button coligo-primary-btn"
           >
             Log In
           </button>
         ) : (
-          <Link to="/dashboard" className="home-button">
+          <Link to="/dashboard" className="home-button coligo-primary-btn">
             Go to Dashboard
           </Link>
         )}
