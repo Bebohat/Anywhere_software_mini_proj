@@ -1,3 +1,4 @@
+// src/components/QuizList.tsx
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchQuizzes, deleteQuiz } from '../features/quizzes/quizSlice';
@@ -15,28 +16,35 @@ const QuizList: React.FC = () => {
   if (error) return <p className="text-red-600">Error: {error}</p>;
 
   return (
-    <div className="mt-6 space-y-6">
+    <div className="quiz-list">
       {quizzes.map((quiz: Quiz) => (
-        <div key={quiz._id} className="border p-4 rounded shadow-sm">
-          <div className="flex justify-between items-center">
-            <h3 className="text-lg font-semibold">{quiz.course_name}</h3>
+        <div key={quiz._id} className="quiz-card">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="quiz-question">{quiz.course_name}</h3>
             <button
               onClick={() => dispatch(deleteQuiz(quiz._id))}
-              className="text-red-500 hover:underline"
+              className="text-sm text-red-500 hover:underline"
             >
               Delete
             </button>
           </div>
 
-          <div className="mt-4 space-y-3">
+          <div className="space-y-3">
             {quiz.questions.map((q: Question, index: number) => {
               const answers = [q.answer1, q.answer2, q.answer3, q.answer4];
               return (
-                <div key={index} className="p-3 bg-gray-100 rounded">
-                  <p className="font-medium">Q{index + 1}: {q.questionText}</p>
-                  <ul className="list-disc ml-5 mt-1 text-sm text-gray-700">
+                <div key={index} className="bg-gray-100 p-3 rounded">
+                  <p className="font-medium mb-1">Q{index + 1}: {q.questionText}</p>
+                  <ul className="list-disc ml-6 text-sm text-gray-800">
                     {answers.map((ans, i) => (
-                      <li key={i} className={ans === q.correctAnswer ? 'font-semibold text-green-600' : ''}>
+                      <li
+                        key={i}
+                        className={
+                          ans === q.correctAnswer
+                            ? 'font-semibold text-green-600'
+                            : ''
+                        }
+                      >
                         {ans}
                       </li>
                     ))}

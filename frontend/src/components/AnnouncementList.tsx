@@ -1,11 +1,11 @@
+// src/components/AnnouncementList.tsx
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { fetchAnnouncements, deleteAnnouncement } from '../features/announcements/announcementSlice';
 
 const AnnouncementList: React.FC = () => {
   const dispatch = useAppDispatch();
- const { list: announcements, loading, error } = useAppSelector((state) => state.announcements);
-
+  const { list: announcements, loading, error } = useAppSelector((state) => state.announcements);
 
   useEffect(() => {
     dispatch(fetchAnnouncements());
@@ -15,20 +15,20 @@ const AnnouncementList: React.FC = () => {
   if (error) return <p className="text-red-600">Error: {error}</p>;
 
   return (
-    <div className="mt-6 space-y-4">
+    <div className="announcement-list">
       {announcements.map((a) => (
-        <div key={a._id} className="border p-4 rounded shadow-sm">
-          <div className="flex justify-between items-center">
-            <p className="font-semibold">{a.userName}</p>
+        <div key={a._id} className="announcement-card">
+          <div className="announcement-header">
+            <span className="announcement-author">{a.userName}</span>
             <button
               onClick={() => dispatch(deleteAnnouncement(a._id))}
-              className="text-red-500"
+              className="text-sm text-red-500 hover:underline"
             >
               Delete
             </button>
           </div>
-          <p className="mt-2">{a.content}</p>
-          <p className="text-sm text-gray-500">{new Date(a.createdAt).toLocaleString()}</p>
+          <p className="announcement-content">{a.content}</p>
+          <p className="announcement-date">{new Date(a.createdAt).toLocaleString()}</p>
         </div>
       ))}
     </div>

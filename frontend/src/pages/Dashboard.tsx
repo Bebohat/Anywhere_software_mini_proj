@@ -1,4 +1,5 @@
-import React from 'react';
+// src/pages/Dashboard.tsx
+import React, { useState } from 'react';
 import { useAppDispatch } from '../hooks';
 import { logout } from '../features/auth/authSlice';
 import AnnouncementForm from '../components/AnnouncementForm';
@@ -12,6 +13,9 @@ const Dashboard: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const [showAnnouncementForm, setShowAnnouncementForm] = useState(false);
+  const [showQuizForm, setShowQuizForm] = useState(false);
+
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -23,30 +27,50 @@ const Dashboard: React.FC = () => {
       </aside>
 
       <main className="main-content">
-        <header>
-          <h1>{t('dashboard')}</h1>
-          <button onClick={handleLogout} className="danger">
-            {t('logout')}
+        <header className="dashboard-header">
+          <h1>{t('Dashboard')}</h1>
+          <button onClick={handleLogout} className="btn danger">
+            {t('Logout')}
           </button>
         </header>
 
-        <section>
-          <h2>{t('newAnnouncement')}</h2>
-          <AnnouncementForm />
+        <section className="dashboard-section">
+          <button
+            className="btn toggle"
+            onClick={() => setShowAnnouncementForm(!showAnnouncementForm)}
+          >
+            {showAnnouncementForm ? t('Hide Add Announcement') : t('Add Announcement')}
+          </button>
+          {showAnnouncementForm && (
+            <div className="card">
+              <h2>{t('Post New Announcement')}</h2>
+              <AnnouncementForm />
+            </div>
+          )}
         </section>
 
-        <section>
-          <h2>{t('announcements')}</h2>
+        <section className="dashboard-section">
+          <h2>{t('Announcements')}</h2>
           <AnnouncementList />
         </section>
 
-        <section>
-          <h2>{t('newQuiz')}</h2>
-          <QuizForm />
+        <section className="dashboard-section">
+          <button
+            className="btn toggle"
+            onClick={() => setShowQuizForm(!showQuizForm)}
+          >
+            {showQuizForm ? t('Hide Add Quiz') : t('Add Quiz')}
+          </button>
+          {showQuizForm && (
+            <div className="card">
+              <h2>{t('Create New Quiz')}</h2>
+              <QuizForm />
+            </div>
+          )}
         </section>
 
-        <section>
-          <h2>{t('allQuizzes')}</h2>
+        <section className="dashboard-section">
+          <h2>{t('All Quizzes')}</h2>
           <QuizList />
         </section>
       </main>
